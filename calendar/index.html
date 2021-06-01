@@ -1,0 +1,138 @@
+<div class="header-banner">
+</div>
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width">
+	<title>Book an Appointment</title>
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700|Roboto+Condensed:400,700,700i|Sintony:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.cbtallc.com/fullcalendar.css">
+	<link rel="stylesheet" href="https://www.cbtallc.com/daygrid.css">
+	<link rel="stylesheet" href="https://www.cbtallc.com/timegrid.css">
+	<link rel="stylesheet" href="https://www.cbtallc.com/list.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://www.cbtallc.com/main.css">
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-17798948-3', 'cbtallc.com');
+		ga('send', 'pageview');
+	</script>
+</head>
+<body>
+	<header class="main-header">
+		<div class="header-wrap">
+			<a class="logo" href="https://www.cbtallc.com/">
+				<h1>CBTA</h1>
+			</a>
+			<nav class="main-nav" role="navigation">
+				<ul class="main-menu">
+					<li class="current"><a href="https://www.cbtallc.com/calendar/"><i class="fa fa-calendar"></i>Appointment</a></li>
+					<li class=""><a href="https://www.cbtallc.com/treatments"><i class="fa fa-spinner"></i>Treatments</a></li>
+					<li class="mobile-assist"><a href="/#location"><i class="fa fa-map-marker"></i>Find us</a></li>
+				</ul><!-- .main-menu -->
+			</nav><!-- .main-nav -->
+		</div><!-- .header-wrap -->
+	</header><!-- .main-header -->
+	<div class="calendar-container">
+		<p>Select an time slot on the calendar below to book an appointment.</p>
+		<div id="calendar"></div>
+		<div class="appointment-form form modal fade in" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3>Request an appointment</h3>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" role="form" id="appointment-request" method="post" data-url="https://forms.cloud.tridnguyen.com/52e88f08fe75390200000004">
+							<p>This appointment request is only available for returning patients. If you're a new patient, please <a href="/#contact-us">contact us</a> first.</p>
+							<h3>Appointment Time</h3>
+							<div class="form-group">
+								<label for="appointment-date" class="control-label col-sm-3">Date</label>
+								<div class="col-sm-8">
+									<input class="info form-control" name="appointment-date" id="app-date" value="" readonly>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="appointment-time" class="control-label col-sm-3">Time</label>
+								<div class="col-sm-8">
+									<input class="info form-control" name="appointment-time" id="app-time" value="" readonly />
+								</div>
+							</div>
+							<h3>Appointment Details</h3>
+							<div class="form-group">
+								<label for="name" class="control-label col-sm-3">Your Name</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="name" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="control-label col-sm-3">Your Email</label>
+								<div class="col-sm-8">
+									<input type="email" class="form-control" name="email" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="phone" class="control-label col-sm-3">Your Phone Number</label>
+								<div class="col-sm-8">
+									<input type="tel" class="form-control" name="phone" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="therapist" class="control-label col-sm-3">Therapist</label>
+								<div class="col-sm-8">
+									<select id="therapist" class="form-control" disabled>
+										<option value="jvermilyea">Dr. Vermilyea</option>
+										<option value="arubin">Dr. Rubin</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="comment" class="control-label col-sm-3">Comment</label>
+								<div class="col-sm-8">
+									<textarea class="form-control" rows="3" name="comment"></textarea>
+								</div>
+							</div>
+							<input type="hidden" id="therapist-input" name="therapist" value=""/>
+							<input type="hidden" id="therapist-email" name="therapist-email" value=""/>
+							<p class="help-block">* Please note that your appointment is NOT booked until you receive a confirmation from your therapist.</p>
+							<div class="form-group">
+								<div class="col-sm-9">
+									<div class="checkbox disclaimer">
+										<label>
+											<input type="checkbox" name="disclaimer" value="acknowledged" required>The complete privacy of personal information transmitted over the Internet cannot be guaranteed by CBTA, LLC. By using this form, you are acknowledging that you accept responsibility for any risk of exposure to your personal health care information or personal identifiers. If you have concerns about this, we encourage you to contact us via more conventional means such as telephone, fax or the United States Postal Service.
+										</label>
+									</div>
+								</div>
+							</div>
+							<input type="hidden" name="form_id" value="52e88f08fe75390200000004"/>
+							<p class="error"></p>
+							<input type="submit" value="Request Appointment"/>
+						</form>
+					</div><!-- .modal-body -->
+				</div><!-- .modal-content -->
+			</div><!-- .modal-dialog -->
+		</div><!-- .modal -->
+	</div><!-- .calendar-container -->
+	<footer>
+		<div class="wrapper">
+			<p class="attribution">Built by <a href="http://tridnguyen.com">Tri Nguyen</a>. Hosted by Github Pages. © Copyrights 2021. <a href="https://plus.google.com/102030715425733045907" rel="publisher"> <i class="fa fa-google-plus-square"></i> Google+</a>.</p>
+			<p class="report-issue">If you run into an issue with the website, please <a href="mailto:tri&#64;tridnguyen.com?subject=CBTA LLC Website Support&body=Please provide the details of the issue. A screenshot of it would be helpful as well.">send us an email</a>.</p>
+
+			<!--
+			<div class="footer-links">
+				<a href="https://www.cbtallc.com/resources">Resources for Patients</a>
+			</div> -->
+		</div><!-- .wrapper -->
+	</footer>
+
+	<script type="text/javascript" src="https://www.cbtallc.com/app.js"></script>
+</body>
+</html>
