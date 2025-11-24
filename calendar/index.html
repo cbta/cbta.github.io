@@ -1,0 +1,194 @@
+<div class="header-banner">
+</div>
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width">
+	<title>Book an Appointment</title>
+	<link href="https://fonts.googleapis.com/css?family=Arimo:400,400i,700|Roboto+Condensed:400,700,700i|Sintony:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.cbtallc.com/fullcalendar.css">
+	<link rel="stylesheet" href="https://www.cbtallc.com/daygrid.css">
+	<link rel="stylesheet" href="https://www.cbtallc.com/timegrid.css">
+	<link rel="stylesheet" href="https://www.cbtallc.com/list.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://www.cbtallc.com/main.css">
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-17798948-3', 'cbtallc.com');
+		ga('send', 'pageview');
+	</script>
+</head>
+<body>
+	<header class="main-header">
+		<div class="header-wrap">
+			<a class="logo" href="https://www.cbtallc.com/">
+				<h1>CBTA</h1>
+			</a>
+			<nav class="main-nav" role="navigation">
+				<ul class="main-menu">
+					<li class=""><a href="https://www.cbtallc.com/client-info">(Esp./Pt.) Client Info</a></li>
+					<li class=""><a href="https://www.cbtallc.com/attorney-information"><i class="fa fa-group"></i>Attorney Info</a></li>
+					<li class="current"><a href="https://www.cbtallc.com/calendar/"><i class="fa fa-calendar"></i>Appointment</a></li>
+					<li class=""><a href="https://www.cbtallc.com/medical-records"><i class="fa fa-file-o"></i>Medical Records</a></li>
+				</ul><!-- .main-menu -->
+			</nav><!-- .main-nav -->
+		</div><!-- .header-wrap -->
+	</header><!-- .main-header -->
+	<div class="calendar-container">
+		<p>Select a time slot on the available appointment calendar below to book an appointment. If you do not see a time that works for you, text Dr. Vermilyea, he may be able to accommodate you.</p>
+		<div id="calendar"></div>
+		<div class="appointment-form form modal fade in" tabindex="-1">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3>Request an appointment</h3>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" role="form" id="appointment-request" method="post" data-url="https://forms.cloud.tridnguyen.com/52e88f08fe75390200000004">
+							<h3>Appointment Time</h3>
+							<div class="form-group">
+								<label for="appointment-date" class="control-label col-sm-3">Date</label>
+								<div class="col-sm-8">
+									<input class="info form-control" name="appointment-date" id="app-date" value="" readonly>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="appointment-time" class="control-label col-sm-3">Time</label>
+								<div class="col-sm-8">
+									<input class="info form-control" name="appointment-time" id="app-time" value="" readonly />
+								</div>
+							</div>
+							<h3>Appointment Details</h3>
+							<div class="form-group">
+								<label for="name" class="control-label col-sm-3">Your Name</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="Petitioner's Name" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="control-label col-sm-3">Your Email</label>
+								<div class="col-sm-8">
+									<input type="email" class="form-control" name="Petitioner's Email" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="phone" class="control-label col-sm-3">Your Phone Number</label>
+								<div class="col-sm-8">
+									<input type="tel" class="form-control" name="Petitioner's Phone Number" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="attorneyName" class="control-label col-sm-3">Attorney That Referred You</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="Attorney's Name" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="attorneyPhone" class="control-label col-sm-3">Attorney's Phone Number</label>
+								<div class="col-sm-8">
+									<input type="tel" class="form-control" name="Attorney's Phone Number" required>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="petition" class="control-label col-sm-3">Petition Type</label>
+								<div class="col-sm-8">
+									<select id="petitionType" class="form-control" name="Petition Type">
+										<option value="Hardship Waver or Forgiveness">Hardship Waiver or Forgiveness</option>
+										<option value="VAWA Domestic Violence">VAWA Domestic Violence</option>
+										<option value="Asylum">Asylum</option>
+										<option value="U-visa as a Victim of a Violent Crime">U-Visa as a Victim of a Violent Crime</option>
+										<option value="Other">Other - Please Add Details in Comment</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="safety" class="control-label col-sm-3">Is it safe for Dr. Vermilyea text you about the appointment?</label>
+								<div class="col-sm-8">
+									<select id="petition" class="form-control" name="Is it safe for Dr. V to text the petitioner">
+										<option value="No">No</option>
+										<option value="Yes">Yes</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="englishFluency" class="control-label col-sm-3">Is the person being evaluated fluent in English?</label>
+								<div class="col-sm-8">
+									<select id="petition" class="form-control" name="Is the Petitioner Fluent in English">
+										<option value="No">No</option>
+										<option value="Yes">Yes</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="interpreter" class="control-label col-sm-3">If you are not fluent in English, do you have your own professional interpreter?</label>
+								<div class="col-sm-8">
+									<select id="petition" class="form-control" name="Does the Petitioner have an Interpreter">
+										<option value="No, because fluent in English">No, because I am fluent in English</option>
+										<option value="No, but not flient in English">No, but I am not fluent in English</option>
+										<option value="Yes">Yes, I have my own professional interpreter</option>
+									</select>
+								</div>
+								<p class="help-block">* If you do not have a professional interpreter for Spanish or Portuguese, Dr. Vermilyea works with Mrs. Tanya Pineda-Lehnert as his preferred translator. Please contact her at 617-669-3419.</p>
+							</div>
+							<div class="form-group">
+								<label for="comment" class="control-label col-sm-3">Comment</label>
+								<div class="col-sm-8">
+									<textarea class="form-control" rows="3" name="Comment"></textarea>
+								</div>
+							</div>
+						
+							<p class="help-block">Please note that you MUST be in Massachusetts at the time of your appointment.</p>
+							<div class="form-group">
+								<label for="presentInMA" class="control-label col-sm-3">Do you swear that you are or will be in Massachusetts for your appointment with Dr. Jim Vermilyea?</label>
+								<div class="col-sm-8">
+									<select id="petition" class="form-control" name="Will the client be physically present in MA during the appointment?">
+										<option value="Yes, I will be in Massachusetts">Yes, I will be in Massachusetts</option>
+										<option value="NO, I cannot say I will be in Massachusetts for the appointment">NO I cannot say I will be in Massachusetts for the appointment</option>
+									</select>
+								</div>
+							</div>
+							
+							<p class="help-block">* Your appointment is NOT booked until you receive a confirmation from us.</p>
+							<p class="help-block">* You meeting will be on Microsoft Teams. Install the app on your phone. If you are using a computer, you will not need to do this. Set this up the day BEFORE your appointment.</p>
+						
+							<div class="form-group">
+								<div class="col-sm-9">
+									<div class="checkbox disclaimer">
+										<label>
+											<input type="checkbox" name="disclaimer" value="acknowledged" required>The complete privacy of personal information transmitted over the Internet cannot be guaranteed by CBTA, LLC. By using this form, you are acknowledging that you accept responsibility for any risk of exposure to your personal health care information or personal identifiers. If you have concerns about this, we encourage you to contact us via more conventional means such as telephone, fax or the United States Postal Service.
+										</label>
+									</div>
+								</div>
+							</div>
+							<input type="hidden" name="form_id" value="52e88f08fe75390200000004"/>
+							<p class="error"></p>
+							<input type="submit" value="Request Appointment"/>
+						</form>
+					</div><!-- .modal-body -->
+				</div><!-- .modal-content -->
+			</div><!-- .modal-dialog -->
+		</div><!-- .modal -->
+	</div><!-- .calendar-container -->
+	<footer>
+		<div class="wrapper">
+			<p class="attribution">Built by <a href="http://tridnguyen.com">Tri Nguyen</a>. Hosted by Github Pages. © Copyrights 2025. <a href="https://plus.google.com/102030715425733045907" rel="publisher"> <i class="fa fa-google-plus-square"></i> Google+</a>.</p>
+			<p class="report-issue">If you run into an issue with the website, please <a href="mailto:tnguyen&#64;cbtallc.com?subject=CBTA LLC Website Support&body=Please provide the details of the issue. A screenshot of it would be helpful as well.">send us an email</a>.</p>
+
+			<!--
+			<div class="footer-links">
+				<a href="https://www.cbtallc.com/resources">Resources for Patients</a>
+			</div> -->
+		</div><!-- .wrapper -->
+	</footer>
+
+	<script type="text/javascript" src="https://www.cbtallc.com/app.js"></script>
+</body>
+</html>
